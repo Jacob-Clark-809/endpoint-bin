@@ -18,10 +18,10 @@ Endpoint Bin is an HTTP request inspection tool built using JavaScript, Node.js,
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/request-bin.git
+git clone https://github.com/Jacob-Clark-809/endpoint-bin.git
 
 # Navigate to the project directory
-cd request-bin
+cd endpoint-bin
 
 # Install dependencies
 npm install
@@ -33,9 +33,9 @@ npm install
 # Start the application
 npm start
 ```
-# Running the Request Bin
+# Running the Endpoint Bin
 
-The Request Bin will be running at http://localhost:3000. You can access the web interface and start creating bins.
+The Endpoint Bin will be running at http://localhost:3000. You can access the web interface and start creating bins.
 
 ## Usage
 
