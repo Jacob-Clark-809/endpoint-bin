@@ -30,6 +30,10 @@ npm install
 # For MongoDB: Edit the env file DDB_URL and provide your MongoDB connection details.
 # For PostgreSQL: Edit the env file RDB_URL and provide your PostgreSQL connection details.
 
+# Create pg database and schema:
+cd lib/pg
+bash start-script.sh
+
 # Start the application
 npm start
 ```
