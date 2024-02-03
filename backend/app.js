@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 const apiRouter = require('./routes/api');
 const saveRequest = require('./routes/middleware/save-request');
 
-const port = 3000;
+const port = process.env.PORT;
 const app = express();
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.DDB_URL)
   .then(() => {
     console.log('connected to MongoDB')
   })

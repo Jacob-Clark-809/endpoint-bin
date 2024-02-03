@@ -21,7 +21,7 @@ Endpoint Bin is an HTTP request inspection tool built using JavaScript, Node.js,
 git clone https://github.com/Jacob-Clark-809/endpoint-bin.git
 
 # Navigate to the project directory
-cd endpoint-bin
+cd endpoint-bin/backend
 
 # Install dependencies
 npm install
@@ -30,8 +30,11 @@ npm install
 # For MongoDB: Edit the env file DDB_URL and provide your MongoDB connection details.
 # For PostgreSQL: Edit the env file RDB_URL and provide your PostgreSQL connection details.
 
+# Configure the port:
+# Edit the env file PORT and provide chosen port number for the application to run on.
+
 # Create pg database and schema:
-cd lib/pg
+cd backend/lib/pg
 bash start-script.sh
 
 # Start the application
