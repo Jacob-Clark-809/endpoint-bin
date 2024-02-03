@@ -1,7 +1,11 @@
+import Header from './components/Header'
+
 const App = () => {
+  console.log(Header);
   return (
-    <div className="App">
-      Frontend frame
+    <div>
+      <Header />
+      Cheese
     </div>
   );
 }
