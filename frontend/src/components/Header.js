@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 
 const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" sx={{ borderRadius: 1 }}>
         <Toolbar>
           <Typography variant="h5" component="div" sc={{ flexGrow: 1}}>
             Endpoint Bin

@@ -1,11 +1,11 @@
-import Header from './components/Header'
+import BinList from './components/BinList';
+import Header from './components/Header';
 
 const App = () => {
-  console.log(Header);
   return (
     <div>
       <Header />
-      Cheese
+      <BinList />
     </div>
   );
 }
