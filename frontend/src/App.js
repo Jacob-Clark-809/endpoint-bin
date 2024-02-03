@@ -1,12 +1,14 @@
-import BinList from './components/BinList';
+import { Box, CssBaseline } from '@mui/material';
 import Header from './components/Header';
+import { Outlet } from 'react-router';
 
 const App = () => {
   return (
-    <div>
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
       <Header />
-      <BinList />
-    </div>
+      <Outlet />
+    </Box>
   );
 }
 

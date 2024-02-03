@@ -16,7 +16,7 @@ function formatPath(path, endpoint) {
 
 async function saveRequest(req, res) {
   const endpoint = req.params['endpoint'];
-  const binId = await rdb.getBin(endpoint);
+  const binId = await rdb.getBinIdByEndpoint(endpoint);
   const addedRequest = await ddb.addRequest(formatRequest(req, endpoint));
   const mongoId = String(addedRequest._id);
 

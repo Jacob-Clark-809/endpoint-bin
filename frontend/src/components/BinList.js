@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Divider, Grid, List, ListItem, Typography, Button } from "@mui/material";
+import { Box, Divider, Grid, List, Typography, Button } from "@mui/material";
 import BinItem from './BinItem';
 import * as binServices from '../services/bins';
 
@@ -28,8 +28,9 @@ const BinList = () => {
     boxShadow: '0 1px 3px rgba(0,0,0,0.12)',
     borderRadius: '8px',
     maxWidth: '90%',
-    marginTop: '3%',
+    marginTop: '10%',
     marginLeft:'5%',
+    flexShrink: 0,
   };
 
   return (

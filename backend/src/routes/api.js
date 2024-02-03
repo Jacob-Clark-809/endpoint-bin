@@ -29,10 +29,17 @@ router.post('/bins', async (req, res) => {
 router.get('/bins/:bin_id', async (req, res) => {
   try {
     const binId = req.params['bin_id'];
-    const requests = await rdb.getRequestsWithBinId(binId);
+    const binPromise = rdb.getBinById(binId);
+    const requestsPromise = rdb.getRequestsWithBinId(binId);
+
+    const [bin, requests] = await Promise.all([binPromise, requestsPromise]);
     
-    res.json(requests);
+    res.json({
+      ...bin,
+      requests
+    });
   } catch (error) {
+    console.error(error);
     res.status(500).send(error.message);
   }
 });

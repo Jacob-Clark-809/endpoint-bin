@@ -5,8 +5,8 @@ const BinItem = ({ bin }) => {
   const itemStyle = {
     borderRadius: '8px',
     maxWidth: '95%',
-    padding: '10px',
-    margin: '20px',
+    padding: '0px',
+    margin: '5px',
   }
 
   return (

@@ -23,11 +23,19 @@ module.exports = {
     return result.rowCount > 0;
   },
 
-  async getBin(endpoint) {
-    const FIND_BIN = "SELECT id FROM bins " +
+  async getBinById(id) {
+    const GET_BIN = "SELECT * FROM bins " +
+                    "WHERE id = $1";
+    
+    let result = await pgConnect(GET_BIN, id);
+    return result.rows[0];
+  },
+
+  async getBinIdByEndpoint(endpoint) {
+    const GET_BIN = "SELECT id FROM bins " +
                       "WHERE endpoint = $1";
 
-    let result = await pgConnect(FIND_BIN, endpoint);
+    let result = await pgConnect(GET_BIN, endpoint);
     return result.rows[0].id;
   },
 
