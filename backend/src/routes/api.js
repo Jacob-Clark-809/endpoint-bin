@@ -65,8 +65,7 @@ router.get('/bins/:bin_id/requests', async (req, res) => {
 // get details of one request
 router.get('/bins/:bin_id/requests/:request_id', async (req, res) => {
   try {
-    const rdbRequest = await rdb.getRequest(req.params['request_id']);
-    const mongoId = String(rdbRequest.mongo_id);
+    const mongoId = req.params.request_id;
     const request = await ddb.getRequest(mongoId);
     res.json(request);
   } catch (error) {

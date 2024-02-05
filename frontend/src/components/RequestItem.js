@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const RequestItem = ({ request }) => {
   return (
-    <Link to={`request/${request.id}`} style={{ width: '100%' }}>
+    <Link to={`request/${request.mongo_id}`} style={{ width: '100%' }}>
       <ListItem disablePadding>
         <ListItemButton>
           <ListItemText primary={
