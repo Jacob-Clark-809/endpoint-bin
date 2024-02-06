@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { getBin, getSse } from '../services/bins';
 import RequestDrawer from './RequestsDrawer';
-import { Box, Toolbar, Typography } from '@mui/material';
+import { Box, Divider, Toolbar, Typography } from '@mui/material';
 
 const BinPage = () => {
   const { binId } = useParams();
@@ -50,8 +50,6 @@ const BinPage = () => {
       });
     });
 
-    console.log(newSse);
-
     return () => {
       if (newSse) {
         newSse.close();
@@ -67,6 +65,7 @@ const BinPage = () => {
         <Typography variant="h5">
           {`Send HTTP requests to /listen/${bin.endpoint} for inspection.`}
         </Typography>
+        <Divider />
         <Outlet />
       </Box>
     </>

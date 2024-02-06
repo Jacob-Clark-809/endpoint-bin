@@ -22,7 +22,9 @@ mongoose.connect(process.env.DDB_URL)
     console.log('error connecting to MongoDB', error.message);
   });
 
-app.use(express.static('build'));
+app.use('/', express.static('build'));
+app.use('/bins', express.static('build'));
+app.use('/bins/*', express.static('build'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', apiRouter);

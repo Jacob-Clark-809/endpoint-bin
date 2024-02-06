@@ -11,7 +11,6 @@ const BinList = () => {
       const data = await binServices.getBins();
 
       setBins(data);
-      console.log(data);
     }
 
     try {
@@ -19,7 +18,17 @@ const BinList = () => {
     } catch (e) {
       console.error(e);
     }
-  }, [])
+  }, []);
+
+  const handleAddNew = async () => {
+    try {
+      const newBin = await binServices.addBin();
+
+      setBins(bins => bins.concat(newBin));
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   const boxStyle = {
     width: '100%',
@@ -43,7 +52,7 @@ const BinList = () => {
           </Typography>
         </Grid>
         <Grid item xs={2}>
-          <Button variant="contained" sx={{ fontSize: '18px', margin: '30px' }}>Add New</Button>
+          <Button variant="contained" sx={{ fontSize: '18px', margin: '30px' }} onClick={handleAddNew}>Add New</Button>
         </Grid>
       </Grid>
       <Divider variant="middle"/>

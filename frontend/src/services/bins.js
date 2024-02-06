@@ -12,6 +12,12 @@ const getBin = async (id) => {
   return request.data;
 }
 
+const addBin = async () => {
+  const request = await axios.post('/api/bins');
+
+  return request.data;
+}
+
 const getSse = (binId) => {
   return new EventSource(`/api/bins/${binId}/sse`);
 }
@@ -19,5 +25,6 @@ const getSse = (binId) => {
 export {
   getBins,
   getBin,
+  addBin,
   getSse,
 }

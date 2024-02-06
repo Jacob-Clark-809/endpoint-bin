@@ -34,16 +34,14 @@ const RequestDetails = () => {
     displayJson(request.body, 0, body, false);
   }
 
-  console.log('Headers:', headers);
-  console.log('Body:', body);
-
   return (
     <Box>
-      <Typography variant="h6">
+      <Typography variant="h6">{`${request.method || ''} ${request.path || ''}`}</Typography>
+      <Typography variant="h7">
         Headers:
       </Typography>
       {headers}
-      <Typography variant="h6">
+      <Typography variant="h7">
         Body:
       </Typography>
       {body}
