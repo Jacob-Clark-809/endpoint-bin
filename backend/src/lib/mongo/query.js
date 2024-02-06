@@ -20,5 +20,5 @@ module.exports = {
   async deleteRequest(id) {
     const removedRequest = await Request.findByIdAndRemove(id);
     return removedRequest;
-  }
+  },
 }

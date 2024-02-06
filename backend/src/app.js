@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const Bree = require('bree');
+const Graceful = require('@ladjs/graceful');
 const apiRouter = require('./routes/api');
 const saveRequest = require('./routes/middleware/save-request');
 
@@ -20,7 +22,7 @@ mongoose.connect(process.env.DDB_URL)
     console.log('error connecting to MongoDB', error.message);
   });
 
-app.use(express.static('public'))
+app.use(express.static('build'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', apiRouter);
@@ -30,4 +32,21 @@ app.all('/listen/:endpoint*', saveRequest)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+
+  if (process.env.NODE_ENV === 'demo') {
+    const bree = new Bree({
+      jobs: [
+        {
+          name: 'resetDb',
+          cron: '0 3 * * *',
+        }
+      ]
+    });
+    
+    const graceful = new Graceful({ brees: [bree] });
+    graceful.listen();
+    
+    bree.start();
+    console.log('Started Bree');
+  }
 });
