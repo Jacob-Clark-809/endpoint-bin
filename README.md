@@ -34,7 +34,7 @@ npm install
 # Edit the env file PORT and provide chosen port number for the application to run on.
 
 # Create pg database and schema:
-cd backend/lib/pg
+cd src/lib/pg
 bash start-script.sh
 
 # Start the application
