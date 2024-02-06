@@ -15,12 +15,10 @@ function generateRandomAlphanumeric(length) {
 module.exports = {
     async addRequest(binId, mongoId, method, path) {
     const ADD_REQUEST = "INSERT INTO requests (bin_id, mongo_id, method, path) " + 
-                        "VALUES($1, $2, $3, $4)";
+                        "VALUES($1, $2, $3, $4) RETURNING *";
 
-    // we'll need to use getBin first before calling this method or have
-    // some other way to get the bin_id
     let result = await pgConnect(ADD_REQUEST, binId, mongoId, method, path);
-    return result.rowCount > 0;
+    return result.rows[0];
   },
 
   async getBinById(id) {
@@ -55,7 +53,7 @@ module.exports = {
 
   async getRequestsWithBinId(binId) {
     const ALL_REQUESTS = "SELECT * FROM requests WHERE bin_id = $1 " + 
-                         "ORDER BY created_at ASC";
+                         "ORDER BY created_at DESC";
 
     let result = await pgConnect(ALL_REQUESTS, binId);
     let requests = result.rows;

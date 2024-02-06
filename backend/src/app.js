@@ -1,11 +1,14 @@
 require("dotenv").config();
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const apiRouter = require('./routes/api');
 const saveRequest = require('./routes/middleware/save-request');
 
 const port = process.env.PORT;
 const app = express();
+
+app.use(cors());
 
 mongoose.set('strictQuery', false);
 
@@ -14,7 +17,7 @@ mongoose.connect(process.env.DDB_URL)
     console.log('connected to MongoDB')
   })
   .catch((error) => {
-    console.log('error conneccting to MongoDB', error.message);
+    console.log('error connecting to MongoDB', error.message);
   });
 
 app.use(express.static('public'))

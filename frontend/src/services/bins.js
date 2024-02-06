@@ -12,7 +12,12 @@ const getBin = async (id) => {
   return request.data;
 }
 
+const getSse = (binId) => {
+  return new EventSource(`/api/bins/${binId}/sse`);
+}
+
 export {
   getBins,
   getBin,
+  getSse,
 }

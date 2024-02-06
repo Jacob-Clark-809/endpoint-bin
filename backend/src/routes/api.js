@@ -3,7 +3,8 @@ const express = require("express");
 const router = express.Router();
 
 const rdb = require('../lib/pg/query');
-const ddb = require('../lib/mongo/query');  
+const ddb = require('../lib/mongo/query');
+const SseHandler = require('../lib/sse/handler');
 
 // get all bins
 router.get('/bins', async (req, res) => {
@@ -44,22 +45,11 @@ router.get('/bins/:bin_id', async (req, res) => {
   }
 });
 
-// get all requests from specific bin
-router.get('/bins/:bin_id/requests', async (req, res) => {
-  try {
-    const binId = req.params['bin_id']
-    const mongoIds = await rdb.getMongoIds(binId);
-
-    const requests = [];
-    for (const id of mongoIds) {
-      const request = await ddb.getRequest(id);
-      requests.push(request);
-    }
-    
-    res.json(requests);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
+// establish sse connection for specific bin
+router.get('/bins/:bin_id/sse', (req, res) => {
+  const binId = req.params['bin_id'];
+  const handler = SseHandler.handlers[binId] || new SseHandler(binId);
+  handler.getSse(req, res);
 });
 
 // get details of one request

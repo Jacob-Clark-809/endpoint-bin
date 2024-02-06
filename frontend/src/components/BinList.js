@@ -31,6 +31,7 @@ const BinList = () => {
     marginTop: '10%',
     marginLeft:'5%',
     flexShrink: 0,
+    backgroundColor: '#89CFF0',
   };
 
   return (

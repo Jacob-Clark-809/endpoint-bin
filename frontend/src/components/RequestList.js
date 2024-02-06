@@ -6,7 +6,7 @@ const RequestList = ({ requests }) => {
   return (
     <Box sx={{ overflow: 'auto' }}>
       <List>
-        <Link to="/bins" style={{ width: '100%' }}>
+        <Link to="/bins" style={{ width: '100%', textDecoration: 'none', color:'black' }}>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemText primary="Back" />
@@ -18,7 +18,7 @@ const RequestList = ({ requests }) => {
             <ListItemText primary="Requests" primaryTypographyProps={{ variant: 'h6' }}/>
         </ListItem>
         {requests.map(request =>
-         <RequestItem request={request} /> 
+         <RequestItem key={request.id} request={request} /> 
         )}
       </List>
     </Box>

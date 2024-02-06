@@ -12,6 +12,13 @@ const RequestDrawer = ({ requests }) => {
         flexShrink: 0,
         [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
       }}
+      PaperProps={
+        {
+          sx: {
+            backgroundColor: '#89CFF0'
+          }
+        }
+      }
     >
       <Toolbar />
       <RequestList requests={requests} />
