@@ -1,6 +1,6 @@
 # Endpoint Bin
 
-Endpoint Bin is an HTTP request inspection tool built using JavaScript, Node.js, MongoDB, and PostgreSQL. It allows you to create temporary endpoints to capture and inspect incoming HTTP requests for debugging and testing purposes.
+Endpoint Bin is an HTTP request inspection tool built using JavaScript, React, Express, Node.js, MongoDB, and PostgreSQL. It allows you to create temporary endpoints to capture and inspect incoming HTTP requests for debugging and testing purposes.
 
 ## Features
 
@@ -42,11 +42,11 @@ npm start
 ```
 # Running the Endpoint Bin
 
-The Endpoint Bin will be running at http://localhost:3000. You can access the web interface and start creating bins.
+The Endpoint Bin will be running at http://localhost:${PORT}. You can access the web interface and start creating bins.
 
 ## Usage
 
-1. Open your web browser and go to http://localhost:3000.
+1. Open your web browser and go to http://localhost:${PORT}.
 2. Create a new bin to generate a unique URL.
 3. Send HTTP requests to the generated URL.
 4. View and inspect the captured requests on the web interface.
